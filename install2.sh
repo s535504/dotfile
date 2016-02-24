@@ -20,6 +20,7 @@ cp Tomorrow-Night-Bright.vim ~/.vim/colors/
 #python
 mkdir ~/.pip
 sudo easy_install pip
+pip install --user ipython
 pip install --user pwntools
 pip install --user --upgrade capstone
 pip install --user hashid

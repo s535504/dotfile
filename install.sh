@@ -48,7 +48,7 @@ brew cask install google-drive
 brew cask install dropbox
 brew cask install teamviewer
 brew cask install vmware-fusion
-brew cask install aluxian-messenger
+brew cask install messenger
 brew cask install jd-gui
 
 # change default shell
