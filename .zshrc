@@ -8,11 +8,13 @@ alias less="less -R"
 alias grep="grep --color=auto"
 alias rm="rmtrash"
 alias ptt="ssh bbsu@ptt.cc"
-alias cc="cd /Users/duckll/Google\ 雲端硬碟/NCYU/104"
+alias cc="cd /Users/duckll/Google\ Drive/NCYU/104"
 alias hh="cd ~"
 alias rr="cd /Volumes/RamDisk/"
+alias ctf="cd /Users/duckll/Google\ Drive/CTF_Tools"
 alias myip="curl ipinfo.io"
 alias launch="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
+alias lu="ssh 192.168.198.128"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -62,7 +64,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux git brew brew-cask github osx python pip ruby gem adb vundle man)
+plugins=(tmux git brew brew-cask github osx python pip ruby gem adb vundle man zsh-autosuggestions zsh-syntax-highlighting)
 autoload -U compinit && compinit
 
 # User configuration
