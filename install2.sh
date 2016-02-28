@@ -3,8 +3,10 @@
 # install oh-my-zsh
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
-# zshcomplete
-#git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+# zsh plugins
+git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
 
 #set dotfile
 cp .zshrc ~/
@@ -25,5 +27,7 @@ pip install --user pwntools
 pip install --user --upgrade capstone
 pip install --user hashid
 pip install --user xortool
+pip install --user Pygments #for show code highlight
+pip install --user Pillow #for picture
 
 echo "Please restart the terminal and enjoy the power shell"
