@@ -1,9 +1,5 @@
 "Some tips
 "replace all :[range(1,$)]s/[cmp]/[rep]/g[c]
-"turn heightlight :nohl
-"redo <C-r> unundo
-"~change case
-":m+ move line
 ""ay yard to a reg
 
 "Setting
@@ -64,6 +60,13 @@ nmap <C-a> ggVG
 nmap <C-5> :set fileencoding=big5<CR>
 nmap <C-8> :set fileencoding=utf8<CR>
 
+"folding
+set foldenable
+set foldmethod=indent
+set foldcolumn=0
+set foldlevel=20
+nmap <Space> za
+
 " Plugins
 " Vundle
 "vim +PluginInstal +qall
@@ -83,37 +86,34 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 Plugin 'gmarik/Vundle.vim'
 "Add your bundles here
-
+"UI
 Plugin 'Lokaltog/vim-powerline'
+Plugin 'myusuf3/numbers.vim'
 
-" Command Tool
-"Plugin 'mileszs/ack.vim
-"Plugin 'vim-scripts/cscope_plus.vim'
-
-" Useful Tool
+"Open file
 Plugin 'scrooloose/nerdtree' "ctrl+n
 nmap <C-n> :NERDTreeToggle<CR>
-
-Plugin 'fidian/hexmode' ":hexmode
-
 Plugin 'kien/ctrlp.vim' "ctrl+p
 let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
 	\ 'file': '\v\.(exe|so|dll|swp|zip|7z|rar|gz|xz|apk|dmg|iso|jpg|png|pdf)$',
 	\ }
 
+"Option
+Plugin 'fidian/hexmode' ":hexmode
+Plugin 'vim-scripts/AutoComplPop' "system file
 Plugin 'majutsushi/tagbar' "quick function jump
 nmap <C-t> :TagbarToggle<CR><C-w>l
 "o open/close folder
 
-" Powerful Editing
-Plugin 'myusuf3/numbers.vim' "line number
-
+"Hotkey
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 Plugin 'vim-scripts/Auto-Pairs' "pair[]
-
 Plugin 'junegunn/vim-easy-align'
 vmap <Enter> <Plug>(EasyAlign)
-
 Plugin 'tpope/vim-surround'
 "ds delete
 "cs[cur][ch] change
@@ -126,15 +126,19 @@ Plugin 'tpope/vim-surround'
 "foo quu|x baz     ySS"         "
 "                                   foo quux baz
 "                               "
+Plugin 'ervandew/supertab'
+let SuperTabMappingForward="<S-Tab>"
 
-Plugin 'ervandew/supertab' "tab
-
-" CSS
+"CSS
 Plugin 'gorodinskiy/vim-coloresque'
 "Plugin 'Shougo/neocomplcache.vim'
 
-" For Python
+"Python
 Plugin 'davidhalter/jedi-vim'
+"Plugin 'python_match.vim'
+
+"php
+Plugin 'StanAngeloff/php.vim'
 
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
