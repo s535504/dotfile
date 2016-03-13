@@ -91,27 +91,31 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'myusuf3/numbers.vim'
 
 "Open file
-Plugin 'scrooloose/nerdtree' "ctrl+n
-nmap <C-n> :NERDTreeToggle<CR>
-Plugin 'kien/ctrlp.vim' "ctrl+p
+"Plugin 'scrooloose/nerdtree' "ctrl+n
+"nmap <C-n> :NERDTreeToggle<CR>
+Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
 	\ 'file': '\v\.(exe|so|dll|swp|zip|7z|rar|gz|xz|apk|dmg|iso|jpg|png|pdf)$',
 	\ }
 
 "Option
-Plugin 'fidian/hexmode' ":hexmode
-Plugin 'vim-scripts/AutoComplPop' "system file
-Plugin 'majutsushi/tagbar' "quick function jump
+Plugin 'fidian/hexmode'
+Plugin 'majutsushi/tagbar'
 nmap <C-t> :TagbarToggle<CR><C-w>l
-"o open/close folder
 
-"Hotkey
+"Compete
+Plugin 'vim-scripts/AutoComplPop'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
-Plugin 'vim-scripts/Auto-Pairs' "pair[]
+"Plugin 'Shougo/neocomplete.vim'
+"Plugin 'Shougo/neosnippet'
+"Plugin 'Shougo/neosnippet-snippets'
+
+"Hotkey
+Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'junegunn/vim-easy-align'
 vmap <Enter> <Plug>(EasyAlign)
 Plugin 'tpope/vim-surround'
@@ -128,10 +132,10 @@ Plugin 'tpope/vim-surround'
 "                               "
 Plugin 'ervandew/supertab'
 let SuperTabMappingForward="<S-Tab>"
+Plugin 'terryma/vim-multiple-cursors'
 
 "CSS
 Plugin 'gorodinskiy/vim-coloresque'
-"Plugin 'Shougo/neocomplcache.vim'
 
 "Python
 Plugin 'davidhalter/jedi-vim'
