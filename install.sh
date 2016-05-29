@@ -20,6 +20,8 @@ brew install rmtrash
 brew install ctags
 brew install ffmpeg
 brew install irssi
+brew install python
+brew install python3
 brew install nmap
 brew install apktool
 brew install dex2jar
