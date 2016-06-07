@@ -20,14 +20,13 @@ brew install rmtrash
 brew install ctags
 brew install ffmpeg
 brew install irssi
-brew install python
 brew install python3
 brew install nmap
 brew install apktool
 brew install dex2jar
-brew install caskroom/cask/brew-cask
 
 # cask install
+brew tap caskroom/cask
 brew cask install google-chrome
 brew cask install android-file-transfer
 brew cask install firefox

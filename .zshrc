@@ -15,7 +15,6 @@ alias ctf="cd /Users/duckll/Google\ Drive/CTF_Tools"
 alias myip="curl ipinfo.io"
 alias launch="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
 alias lu="ssh 192.168.198.128"
-alias ccat='pygmentize -g -O style=colorful,linenos=1'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -99,11 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 #gem
 for dir in $HOME/.gem/ruby/*; do
   [ -d "$dir/bin" ] && PATH="${dir}/bin:${PATH}"
 done
-
-#pip
-export PYTHONUSERBASE=/Users/duckll/.pip
-PATH="$PYTHONUSERBASE/bin:${PATH}"

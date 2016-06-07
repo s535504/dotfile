@@ -14,20 +14,10 @@ cp .vimrc ~/
 cp .tmux.con ~/
 cp .gemrc ~/
 cp .gitconfig ~/
+cp .gitignore_global ~/
 
 #set vim
 mkdir ~/.vim/colors
 cp Tomorrow-Night-Bright.vim ~/.vim/colors/
 
-#python
-mkdir ~/.pip
-sudo easy_install pip
-pip install --user ipython
-pip install --user pwntools
-pip install --user --upgrade capstone
-pip install --user hashid
-pip install --user xortool
-pip install --user Pygments #for show code highlight
-pip install --user Pillow #for picture
-
-echo "Please restart the terminal and enjoy the power shell"
+echo "Please restart the terminal and execute install3.sh"
