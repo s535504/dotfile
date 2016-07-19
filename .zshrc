@@ -1,20 +1,12 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/duckll/.oh-my-zsh
+#Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
 
-#alias
-alias cask="brew cask"
-alias ta="tmux attach"
-alias less="less -R"
-alias grep="grep --color=auto"
-alias rm="rmtrash"
-alias ptt="ssh bbsu@ptt.cc"
-alias cc="cd /Users/duckll/Google\ Drive/NCYU/104"
-alias hh="cd ~"
-alias rr="cd /Volumes/RamDisk/"
-alias ctf="cd /Users/duckll/Google\ Drive/CTF_Tools"
-alias myip="curl ipinfo.io"
-alias launch="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
-alias lu="ssh 192.168.198.128"
+#tmux autostart
+export ZSH_TMUX_AUTOSTART=true
+
+#set editor
+export EDITOR=vim
+
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -64,13 +56,15 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux git brew brew-cask github osx python pip ruby gem adb vundle man zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(tmux git brew brew-cask github osx python pip ruby node gem docker zsh-autosuggestions zsh-syntax-highlighting)
 autoload -U compinit && compinit
 
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="/Users/duckll/Library/Android/sdk/platform-tools:$PATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,8 +92,39 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
 #gem
 for dir in $HOME/.gem/ruby/*; do
   [ -d "$dir/bin" ] && PATH="${dir}/bin:${PATH}"
 done
+
+#pip
+export PYTHONUSERBASE=~/.pip
+PATH="$PYTHONUSERBASE/bin:${PATH}"
+
+#alias
+#system
+alias cp="cp -i"
+alias mv="mv -i"
+alias ls="ls -HGF"
+alias less="less -R"
+alias grep="grep --color=auto"
+alias rm="rmtrash"
+alias myip="curl ipinfo.io"
+alias launch="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
+
+
+#ssh
+alias lu="ssh 192.168.46.134"
+alias ptt="ssh bbsu@ptt.cc"
+alias ncyu="ssh islab@120.113.173.49"
+alias nthu="ssh 140.114.77.174 -p 42968"
+alias seedcard="ssh 120.113.173.50"
+
+#cd
+alias cc="cd /Users/duckll/Google\ Drive/NTHU/105"
+alias hh="cd ~"
+alias rr="cd /Volumes/RamDisk/"
+alias ctf="cd /Users/duckll/Google\ Drive/CTF_Tools"
+
+#app
+alias cask="brew cask"

@@ -11,7 +11,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 #set dotfile
 cp .zshrc ~/
 cp .vimrc ~/
-cp .tmux.con ~/
+cp .tmux.conf ~/
 cp .gemrc ~/
 cp .gitconfig ~/
 cp .gitignore_global ~/
@@ -19,5 +19,4 @@ cp .gitignore_global ~/
 #set vim
 mkdir ~/.vim/colors
 cp Tomorrow-Night-Bright.vim ~/.vim/colors/
-
-echo "Please restart the terminal and execute install3.sh"
+vim

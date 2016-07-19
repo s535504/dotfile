@@ -19,17 +19,13 @@ brew install vim
 brew install rmtrash
 brew install ctags
 brew install ffmpeg
-brew install irssi
 brew install python3
-brew install nmap
 brew install apktool
 brew install dex2jar
 
 # cask install
 brew tap caskroom/cask
 brew cask install google-chrome
-brew cask install android-file-transfer
-brew cask install firefox
 brew cask install skype
 brew cask install vlc
 brew cask install iterm2

@@ -50,7 +50,7 @@ autocmd filetype javascript nnoremap <C-c> :w <bar> exec '!nodejs '.shellescape(
 autocmd filetype lisp nnoremap <C-c> :w <bar> exec '!clisp '.shellescape('%') <CR>
 autocmd filetype shell nnoremap <C-c> :w <bar> exec '!bash '.shellescape('%') <CR>
 autocmd filetype php nnoremap <C-c> :w <bar> exec '!php -f '.shellescape('%') <CR>
-autocmd filetype python nnoremap <C-c> :w <bar> exec '!python '.shellescape('%')<CR>
+autocmd filetype python nnoremap <C-c> :w <bar> exec '!python3 '.shellescape('%')<CR>
 autocmd filetype c nnoremap <C-c> :w <bar> exec '!gcc -o %:r '.shellescape('%').' -O2 && ./%:r'<CR>
 autocmd filetype cpp nnoremap <C-c> :w <bar> exec '!g++ -o %:r '.shellescape('%').' -std=c++11 -O2 && ./%:r'<CR>
 

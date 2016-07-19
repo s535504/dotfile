@@ -1,6 +1,6 @@
 [user]
 	email = a347liao@gmail.com
-	name = DuckLL
+	name = duckll
 [color]
     ui = true
 [alias]
@@ -20,11 +20,6 @@
 	s = status
 [core]
     editor = vim
-	excludesfile = /Users/duckll/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-	cmd = /Users/duckll/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
