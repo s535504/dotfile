@@ -56,4 +56,24 @@ brew cleanup
 brew prune
 brew doctor
 
-echo "please restart terminal and run install2.sh."
+# install oh-my-zsh
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
+# zsh plugins
+git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+
+#set dotfile
+cp .zshrc ~/
+cp .vimrc ~/
+cp .tmux.conf ~/
+cp .gemrc ~/
+cp .gitconfig ~/
+cp .gitignore_global ~/
+
+#set vim
+mkdir -p ~/.vim/colors
+cp Tomorrow-Night-Bright.vim ~/.vim/colors/
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
