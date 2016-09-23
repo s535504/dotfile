@@ -56,7 +56,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux git brew brew-cask github osx python pip ruby node gem docker zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(tmux git brew brew-cask github osx python pip ruby node gem go docker zsh-autosuggestions zsh-syntax-highlighting)
 autoload -U compinit && compinit
 
 # User configuration
@@ -101,6 +101,9 @@ done
 export PYTHONUSERBASE=~/.pip
 PATH="$PYTHONUSERBASE/bin:${PATH}"
 
+#prompt
+export PROMPT=%{$fg[blue]%}%~%{$reset_color%}$
+
 #alias
 #system
 alias cp="cp -i"
@@ -111,20 +114,23 @@ alias grep="grep --color=auto"
 alias rm="rmtrash"
 alias myip="curl ipinfo.io"
 alias launch="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
-
+function mkcd { mkdir -p "$@" && cd "$@";  }
 
 #ssh
 alias lu="ssh 192.168.46.134"
 alias ptt="ssh bbsu@ptt.cc"
 alias ncyu="ssh islab@120.113.173.49"
-alias nthu="ssh 140.114.77.174 -p 42968"
 alias seedcard="ssh 120.113.173.50"
+alias nthu="ssh 140.114.77.174 -p 42968"
+alias vpn="ssh 140.114.77.196 -p 42968"
 
 #cd
 alias cc="cd /Users/duckll/Google\ Drive/NTHU/105"
 alias hh="cd ~"
 alias rr="cd /Volumes/RamDisk/"
-alias ctf="cd /Users/duckll/Google\ Drive/CTF_Tools"
 
 #app
 alias cask="brew cask"
+
+#docker
+alias ctf="docker start ctf && docker attach ctf"

@@ -22,14 +22,15 @@ let g:ctrlp_custom_ignore = {
 
 "Option
 Plugin 'majutsushi/tagbar'
-let g:tagbar_show_linenumbers = 2
+let g:tagbar_show_linenumbers = 1
 
 "Compete
-Plugin 'vim-scripts/AutoComplPop'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+"Plugin 'vim-scripts/AutoComplPop'
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 "Hotkey
 Plugin 'vim-scripts/Auto-Pairs'
@@ -44,6 +45,7 @@ Plugin 'gorodinskiy/vim-coloresque'
 
 "Python
 Plugin 'davidhalter/jedi-vim'
+Plugin 'metakirby5/codi.vim'
 "Plugin 'python_match.vim'
 
 "php

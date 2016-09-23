@@ -6,10 +6,9 @@ xcode-select --install
 # install brew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# check brew
+# brew
 brew update
 
-# brew install
 brew install zsh
 brew install tmux
 brew install git
@@ -22,9 +21,15 @@ brew install ffmpeg
 brew install python3
 brew install apktool
 brew install dex2jar
+brew install p7zip
 
-# cask install
+brew cleanup --force
+brew prune
+brew doctor
+
+# cask
 brew tap caskroom/cask
+
 brew cask install google-chrome
 brew cask install skype
 brew cask install vlc
@@ -47,14 +52,15 @@ brew cask install teamviewer
 brew cask install vmware-fusion
 brew cask install messenger
 brew cask install jd-gui
+brew cask install docker
+brew cask install daisydisk
+brew cask install dolphin
+
+brew cask cleanup
+brew cask doctor
 
 # change default shell
 chsh -s /usr/local/bin/zsh
-
-# checkdone
-brew cleanup
-brew prune
-brew doctor
 
 # install oh-my-zsh
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
@@ -62,7 +68,6 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 # zsh plugins
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-
 
 #set dotfile
 cp .zshrc ~/
