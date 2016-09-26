@@ -133,4 +133,4 @@ alias rr="cd /Volumes/RamDisk/"
 alias cask="brew cask"
 
 #docker
-alias ctf="docker start ctf && docker attach ctf"
+alias ctf="docker start ctf && docker exec -it ctf script /dev/null -c 'tmux'"
