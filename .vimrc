@@ -11,7 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 
 "UI
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
 
 "Open file
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -25,7 +25,7 @@ Plugin 'majutsushi/tagbar'
 let g:tagbar_show_linenumbers = 1
 
 "Compete
-"Plugin 'vim-scripts/AutoComplPop'
+Plugin 'vim-scripts/AutoComplPop'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -39,6 +39,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
 let SuperTabMappingForward="<S-Tab>"
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'michaeljsmith/vim-indent-object'
 
 "CSS
 Plugin 'gorodinskiy/vim-coloresque'
@@ -55,10 +57,12 @@ call vundle#end()
 filetype plugin indent on
 
 "Keymap
+let mapleader=","
 nmap ; :
 vmap ; :
 nmap <C-t> :TagbarToggle<CR><C-w>l
 nmap <C-a> ggVG
+nmap <Space> za
 nmap <C-y> :set paste!<CR>
 nmap <C-5> :set fileencoding=big5<CR>
 nmap <C-8> :set fileencoding=utf8<CR>
@@ -93,7 +97,6 @@ set foldenable
 set foldmethod=indent
 set foldcolumn=1
 set foldlevel=2
-nmap <Space> za
 
 "Run fils
 autocmd filetype ruby nnoremap <C-c> :w <bar> exec '!ruby '.shellescape('%') <CR>
@@ -101,7 +104,7 @@ autocmd filetype haml nnoremap <C-c> :w <bar> exec '!haml '.shellescape('%').' %
 autocmd filetype javascript nnoremap <C-c> :w <bar> exec '!nodejs '.shellescape('%') <CR>
 autocmd filetype lisp nnoremap <C-c> :w <bar> exec '!clisp '.shellescape('%') <CR>
 autocmd filetype shell nnoremap <C-c> :w <bar> exec '!bash '.shellescape('%') <CR>
-"autocmd filetype php nnoremap <C-c> :w <bar> exec '!php -f '.shellescape('%') <CR>
+autocmd filetype php nnoremap <C-c> :w <bar> exec '!php -f '.shellescape('%') <CR>
 autocmd filetype python nnoremap <C-c> :w <bar> exec '!python '.shellescape('%')<CR>
 autocmd filetype c nnoremap <C-c> :w <bar> exec '!gcc -o %:r '.shellescape('%').' -O2 && ./%:r'<CR>
 autocmd filetype cpp nnoremap <C-c> :w <bar> exec '!g++ -o %:r '.shellescape('%').' -std=c++11 -O2 && ./%:r'<CR>
