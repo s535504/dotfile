@@ -4,10 +4,6 @@ export ZSH=~/.oh-my-zsh
 #tmux autostart
 export ZSH_TMUX_AUTOSTART=true
 
-#set editor
-export EDITOR=vim
-
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -88,18 +84,19 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 #gem
-for dir in $HOME/.gem/ruby/*; do
-  [ -d "$dir/bin" ] && PATH="${dir}/bin:${PATH}"
-done
+#for dir in $HOME/.gem/ruby/*; do
+#  [ -d "$dir/bin" ] && PATH="${dir}/bin:${PATH}"
+#done
 
 #pip
-export PYTHONUSERBASE=~/.pip
-PATH="$PYTHONUSERBASE/bin:${PATH}"
+#export PYTHONUSERBASE=~/.pip
+#PATH="$PYTHONUSERBASE/bin:${PATH}"
 
 #prompt
 export PROMPT=%{$fg[blue]%}%~%{$reset_color%}$
@@ -107,14 +104,17 @@ export PROMPT=%{$fg[blue]%}%~%{$reset_color%}$
 #alias
 #system
 alias cp="cp -i"
-alias mv="mv -i"
+alias grep="grep --color=auto"
 alias ls="ls -HGF"
 alias less="less -R"
-alias grep="grep --color=auto"
-alias rm="rmtrash"
+alias mv="mv -i"
 alias myip="curl ipinfo.io"
-alias launch="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
+alias rm="rmtrash"
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 function mkcd { mkdir -p "$@" && cd "$@";  }
+
 
 #ssh
 alias lu="ssh 192.168.46.134"
@@ -125,12 +125,16 @@ alias nthu="ssh 140.114.77.174 -p 42968"
 alias vpn="ssh 140.114.77.196 -p 42968"
 
 #cd
-alias cc="cd /Users/duckll/Google\ Drive/NTHU/105"
-alias hh="cd ~"
+alias cc="cd ~/Google\ Drive/NTHU/105"
 alias rr="cd /Volumes/RamDisk/"
+alias site="cd ~/Sites"
 
 #app
 alias cask="brew cask"
 
 #docker
+alias dk="docker"
 alias ctf="docker start ctf && docker exec -it ctf script /dev/null -c 'tmux'"
+
+##apple
+alias launch="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
