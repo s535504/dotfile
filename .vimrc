@@ -13,7 +13,6 @@ NeoBundle 'tomasr/molokai'
 let g:molokai_original = 1
 let g:rehash256 = 1
 
-
 " Feature
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
@@ -54,7 +53,7 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
 
 " CSS
-NeoBundle 'ap/vim-css-color'
+NeoBundle 'gko/vim-coloresque'
 
 " Python
 NeoBundle 'hdima/python-syntax'
