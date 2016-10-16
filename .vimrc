@@ -1,83 +1,102 @@
-" install neobundle
+" Install dein
 
 set nocompatible
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+call dein#begin(expand('~/.vim/dein'))
+call dein#add('Shougo/dein.vim')
+let g:dein#types#git#clone_depth = 1
 
 " UI
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'vim-airline/vim-airline'
+call dein#add('airblade/vim-gitgutter')
+call dein#add('vim-airline/vim-airline')
 let g:airline_powerline_fonts = 1
-NeoBundle 'tomasr/molokai'
+call dein#add('tomasr/molokai')
 let g:molokai_original = 1
 let g:rehash256 = 1
 
 " Feature
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-"NeoBundle 'Shougo/unite.vim'
-NeoBundle 'majutsushi/tagbar'
+"call dein#add('Shougo/vimproc.vim', {
+"\ 'build' : {
+"\     'windows' : 'tools\\update-dll-mingw',
+"\     'cygwin' : 'make -f make_cygwin.mak',
+"\     'mac' : 'make -f make_mac.mak',
+"\     'linux' : 'make',
+"\     'unix' : 'gmake',
+"\    },
+"\ })
+"call dein#add('Shougo/unite.vim')
+call dein#add('majutsushi/tagbar',{'on_cmd': 'TagbarToggle'})
 let g:tagbar_show_linenumbers = 1
-NeoBundle 'ctrlpvim/ctrlp.vim'
+call dein#add('ctrlpvim/ctrlp.vim')
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
     \ 'file': '\v\.(exe|so|dll|swp|zip|7z|rar|gz|xz|apk|dmg|iso|jpg|png|pdf)$',
 \ }
 
 " Autocomplete
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'garbas/vim-snipmate'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'Shougo/deoplete.nvim'
+call dein#add('MarcWeber/vim-addon-mw-utils',{'on_i': '1'})
+call dein#add('tomtom/tlib_vim',{'on_i': '1'})
+call dein#add('garbas/vim-snipmate',{'on_i': '1'})
+call dein#add('honza/vim-snippets',{'on_i': '1'})
+call dein#add('Shougo/deoplete.nvim',{'on_i': '1'})
 let g:deoplete#enable_at_startup = 1
+call dein#add( 'scrooloose/syntastic')
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Hotkey
-NeoBundle 'vim-scripts/auto-pairs'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'michaeljsmith/vim-indent-object'
-NeoBundle 'ervandew/supertab'
+call dein#add('vim-scripts/auto-pairs')
+call dein#add('junegunn/vim-easy-align',{'on_map': ['V','v']})
+call dein#add('tpope/vim-surround')
+call dein#add('scrooloose/nerdcommenter')
+call dein#add('michaeljsmith/vim-indent-object',{'on_map': 'v'})
+call dein#add('ervandew/supertab',{'on_i': '1'})
+let SuperTabMappingForward="<S-Tab>"
+call dein#add('easymotion/vim-easymotion',{'on_map': '<Plug>'})
+let g:EasyMotion_smartcase = 1
 
 " Markdown
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'plasticboy/vim-markdown'
+call dein#add('godlygeek/tabular',{'on_ft': ['markdown']})
+call dein#add('plasticboy/vim-markdown',{'on_ft': ['markdown']})
 
 " CSS
-NeoBundle 'gko/vim-coloresque'
+call dein#add('gko/vim-coloresque',{'on_ft': ['html','css','javascript','markdown']})
 
 " Python
-NeoBundle 'hdima/python-syntax'
-NeoBundle 'zchee/deoplete-jedi'
+call dein#add('hdima/python-syntax',{'on_ft': ['python']})
+let python_highlight_all = 1
+call dein#add('zchee/deoplete-jedi',{'on_ft': ['python']})
 
-call neobundle#end()
+call dein#end()
+call dein#check_install()
 filetype plugin indent on
-NeoBundleCheck
 
 " Hotkey
+map  n       <Plug>(easymotion-next)
+map  N       <Plug>(easymotion-prev)
 nmap ;       :
 vmap ;       :
+map  /       <Plug>(easymotion-sn)
+omap /       <Plug>(easymotion-tn)
+nmap \       zR
 nmap <C-a>   ggVG
+nmap <C-k>   <Plug>(easymotion-w)
 nmap <C-l>   :nohl<CR>
-nmap <C-s>   :wq<CR>
 nmap <C-t>   :TagbarToggle<CR><C-w>l
 nmap <C-y>   :set paste!<CR>
 nmap <C-5>   :set fileencoding=big5<CR>
 nmap <C-8>   :set fileencoding=utf8<CR>
-nmap <Space> za
+nmap <Enter> za
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Tab>   gt
 nmap <S-Tab> gT
-" evil shift!
+
+" Evil shift!
 cab Q   q
 cab Qa  qa
 cab W   w
@@ -87,34 +106,38 @@ cab Wq  wq
 cab wQ  wq
 cab Set set
 
-" setting
+" Setting
 let mapleader=" "                      " leader key
 syntax on                              " Color syntax
 color molokai                          " Theme
 set backspace=start,eol,indent         " Backspcae
-set smartindent                        " Autoindent
-set number                             " Line number
-set ruler                              " show line info
-set scrolloff=3                        " scroll while close under
-set mouse=a                            " Use mouse
 set clipboard=unnamed                  " Clipboard
-set laststatus=2                       " Always show the statusline
+set cursorline                         " height corrent line
 set encoding=utf-8                     " Necessary to show Unicode glyphs
 set fileencodings=utf8,big5,gbk,latin1 " set fileopentype
-set t_Co=256                           " Explicitly tell Vim that the terminal supports 256 colors
-set cursorline                         " height corrent line
 set hls                                " search heightlight
 set ignorecase                         " ignore case in search
 set incsearch                          " search back
+set laststatus=2                       " Always show the statusline
+set mouse=a                            " Use mouse
+set number                             " Line number
+set ruler                              " show line info
+set scrolloff=7                        " scroll while close under
 set showcmd                            " show command
+set smartindent                        " Autoindent
+set t_Co=256                           " Explicitly tell Vim that the terminal supports 256 colors
 set timeoutlen=300                     " escape delay
 set wildmenu                           " Autocomplete menu
+
+" Python Path
+let g:python2_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Tab
 set expandtab
 set shiftwidth=4
-set tabstop=4
 set softtabstop=4
+set tabstop=4
 
 " Folding
 set foldenable
@@ -127,7 +150,7 @@ autocmd FileType python setlocal et sta  sw=4 sts=4 cc=80 completeopt-=preview
 autocmd FileType html   setlocal et sw=2 sts=2
 autocmd FileType ruby   setlocal et sw=2 sts=2
 
-" Run file
+" Run File
 autocmd filetype ruby       nnoremap <C-c> :w <bar> exec '!ruby '.shellescape('%') <CR>
 autocmd filetype javascript nnoremap <C-c> :w <bar> exec '!nodejs '.shellescape('%') <CR>
 autocmd filetype shell      nnoremap <C-c> :w <bar> exec '!bash '.shellescape('%') <CR>

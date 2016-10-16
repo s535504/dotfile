@@ -110,17 +110,18 @@ alias less="less -R"
 alias mv="mv -i"
 alias myip="curl ipinfo.io"
 alias rm="rmtrash"
-alias v="nvim"
+alias tmuxrc="nvim ~/.tmux.conf"
 alias vi="nvim"
 alias vim="nvim"
+alias vimrc="nvim ~/.vimrc"
+alias zshrc="nvim ~/.zshrc"
+alias tmuxrc="nvim ~/.tmux.conf"
 function mkcd { mkdir -p "$@" && cd "$@";  }
 
 
 #ssh
-alias lu="ssh 192.168.46.134"
 alias ptt="ssh bbsu@ptt.cc"
 alias ncyu="ssh islab@120.113.173.49"
-alias seedcard="ssh 120.113.173.50"
 alias nthu="ssh 140.114.77.174 -p 42968"
 alias vpn="ssh 140.114.77.196 -p 42968"
 
