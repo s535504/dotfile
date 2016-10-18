@@ -54,7 +54,7 @@ call dein#add('vim-scripts/auto-pairs')
 call dein#add('junegunn/vim-easy-align',{'on_map': ['V','v']})
 call dein#add('tpope/vim-surround')
 call dein#add('scrooloose/nerdcommenter')
-call dein#add('michaeljsmith/vim-indent-object',{'on_map': 'v'})
+call dein#add('michaeljsmith/vim-indent-object')
 call dein#add('ervandew/supertab',{'on_i': '1'})
 let SuperTabMappingForward="<S-Tab>"
 call dein#add('easymotion/vim-easymotion',{'on_map': '<Plug>'})
@@ -143,7 +143,7 @@ set tabstop=4
 set foldenable
 set foldmethod=indent
 set foldcolumn=1
-set foldlevel=2
+set foldlevel=4
 
 " Filetype Related
 autocmd FileType python setlocal et sta  sw=4 sts=4 cc=80 completeopt-=preview
