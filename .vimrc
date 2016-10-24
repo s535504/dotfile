@@ -1,46 +1,32 @@
-" Install dein
-
+" Install vim-plug
 set nocompatible
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-call dein#begin(expand('~/.vim/dein'))
-call dein#add('Shougo/dein.vim')
-let g:dein#types#git#clone_depth = 1
+call plug#begin()
 
 " UI
-call dein#add('airblade/vim-gitgutter')
-call dein#add('vim-airline/vim-airline')
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
 let g:airline_powerline_fonts = 1
-call dein#add('tomasr/molokai')
+Plug 'tomasr/molokai'
 let g:molokai_original = 1
 let g:rehash256 = 1
 
 " Feature
-"call dein#add('Shougo/vimproc.vim', {
-"\ 'build' : {
-"\     'windows' : 'tools\\update-dll-mingw',
-"\     'cygwin' : 'make -f make_cygwin.mak',
-"\     'mac' : 'make -f make_mac.mak',
-"\     'linux' : 'make',
-"\     'unix' : 'gmake',
-"\    },
-"\ })
-"call dein#add('Shougo/unite.vim')
-call dein#add('majutsushi/tagbar',{'on_cmd': 'TagbarToggle'})
+Plug 'majutsushi/tagbar'
 let g:tagbar_show_linenumbers = 1
-call dein#add('ctrlpvim/ctrlp.vim')
+Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
     \ 'file': '\v\.(exe|so|dll|swp|zip|7z|rar|gz|xz|apk|dmg|iso|jpg|png|pdf)$',
 \ }
 
 " Autocomplete
-call dein#add('MarcWeber/vim-addon-mw-utils',{'on_i': '1'})
-call dein#add('tomtom/tlib_vim',{'on_i': '1'})
-call dein#add('garbas/vim-snipmate',{'on_i': '1'})
-call dein#add('honza/vim-snippets',{'on_i': '1'})
-call dein#add('Shougo/deoplete.nvim',{'on_i': '1'})
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'Shougo/deoplete.nvim'
 let g:deoplete#enable_at_startup = 1
-call dein#add( 'scrooloose/syntastic')
+Plug  'scrooloose/syntastic'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -50,30 +36,30 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Hotkey
-call dein#add('vim-scripts/auto-pairs')
-call dein#add('junegunn/vim-easy-align',{'on_map': ['V','v']})
-call dein#add('tpope/vim-surround')
-call dein#add('scrooloose/nerdcommenter')
-call dein#add('michaeljsmith/vim-indent-object')
-call dein#add('ervandew/supertab',{'on_i': '1'})
+Plug 'vim-scripts/auto-pairs'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'ervandew/supertab'
 let SuperTabMappingForward="<S-Tab>"
-call dein#add('easymotion/vim-easymotion',{'on_map': '<Plug>'})
+Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_smartcase = 1
 
 " Markdown
-call dein#add('godlygeek/tabular',{'on_ft': ['markdown']})
-call dein#add('plasticboy/vim-markdown',{'on_ft': ['markdown']})
+Plug 'godlygeek/tabular',{'for': ['markdown']}
+Plug 'plasticboy/vim-markdown',{'for': ['markdown']}
 
 " CSS
-call dein#add('gko/vim-coloresque',{'on_ft': ['html','css','javascript','markdown']})
+Plug 'gko/vim-coloresque',{'for': ['html','css','javascript','markdown']}
 
 " Python
-call dein#add('hdima/python-syntax',{'on_ft': ['python']})
+Plug 'hdima/python-syntax',{'for': ['python']}
 let python_highlight_all = 1
-call dein#add('zchee/deoplete-jedi',{'on_ft': ['python']})
+Plug 'zchee/deoplete-jedi',{'for': ['python']}
 
-call dein#end()
-call dein#check_install()
+call plug#end()
+
 filetype plugin indent on
 
 " Hotkey
@@ -129,10 +115,6 @@ set t_Co=256                           " Explicitly tell Vim that the terminal s
 set timeoutlen=300                     " escape delay
 set wildmenu                           " Autocomplete menu
 
-" Python Path
-let g:python2_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
-
 " Tab
 set expandtab
 set shiftwidth=4
@@ -152,9 +134,9 @@ autocmd FileType ruby   setlocal et sw=2 sts=2
 
 " Run File
 autocmd filetype ruby       nnoremap <C-c> :w <bar> exec '!ruby '.shellescape('%') <CR>
-autocmd filetype javascript nnoremap <C-c> :w <bar> exec '!nodejs '.shellescape('%') <CR>
+autocmd filetype javascript nnoremap <C-c> :w <bar> exec '!node '.shellescape('%') <CR>
 autocmd filetype shell      nnoremap <C-c> :w <bar> exec '!bash '.shellescape('%') <CR>
 autocmd filetype php        nnoremap <C-c> :w <bar> exec '!php -f '.shellescape('%') <CR>
 autocmd filetype python     nnoremap <C-c> :w <bar> exec '!python '.shellescape('%')<CR>
-autocmd filetype c          nnoremap <C-c> :w <bar> exec '!gcc -o %:r '.shellescape('%').' -O2 && ./%:r'<CR>
-autocmd filetype cpp        nnoremap <C-c> :w <bar> exec '!g++ -o %:r '.shellescape('%').' -std=c++11 -O2 && ./%:r'<CR>
+autocmd filetype c          nnoremap <C-c> :w <bar> exec '!gcc -o %:r '.shellescape('%').' -O3 && ./%:r'<CR>
+autocmd filetype cpp        nnoremap <C-c> :w <bar> exec '!g++ -o %:r '.shellescape('%').' -std=c++11 -O3 && ./%:r'<CR>
