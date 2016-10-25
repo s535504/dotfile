@@ -71,7 +71,7 @@ map  /       <Plug>(easymotion-sn)
 omap /       <Plug>(easymotion-tn)
 nmap \       zR
 nmap <C-a>   ggVG
-nmap <C-k>   <Plug>(easymotion-w)
+nmap <C-k>   H<Plug>(easymotion-w)
 nmap <C-l>   :nohl<CR>
 nmap <C-t>   :TagbarToggle<CR><C-w>l
 nmap <C-y>   :set paste!<CR>
@@ -108,7 +108,7 @@ set laststatus=2                       " Always show the statusline
 set mouse=a                            " Use mouse
 set number                             " Line number
 set ruler                              " show line info
-set scrolloff=7                        " scroll while close under
+set scrolloff=5                        " scroll while close under
 set showcmd                            " show command
 set smartindent                        " Autoindent
 set t_Co=256                           " Explicitly tell Vim that the terminal supports 256 colors
@@ -136,7 +136,7 @@ autocmd FileType ruby   setlocal et sw=2 sts=2
 autocmd filetype ruby       nnoremap <C-c> :w <bar> exec '!ruby '.shellescape('%') <CR>
 autocmd filetype javascript nnoremap <C-c> :w <bar> exec '!node '.shellescape('%') <CR>
 autocmd filetype shell      nnoremap <C-c> :w <bar> exec '!bash '.shellescape('%') <CR>
-autocmd filetype php        nnoremap <C-c> :w <bar> exec '!php -f '.shellescape('%') <CR>
-autocmd filetype python     nnoremap <C-c> :w <bar> exec '!python '.shellescape('%')<CR>
+autocmd filetype php        nnoremap <C-c> :w <bar> exec '!php -f '.shellescape('%')<CR>
+autocmd filetype python     nnoremap <C-c> :w <bar> exec 'term python '.shellescape('%')<CR>
 autocmd filetype c          nnoremap <C-c> :w <bar> exec '!gcc -o %:r '.shellescape('%').' -O3 && ./%:r'<CR>
 autocmd filetype cpp        nnoremap <C-c> :w <bar> exec '!g++ -o %:r '.shellescape('%').' -std=c++11 -O3 && ./%:r'<CR>
