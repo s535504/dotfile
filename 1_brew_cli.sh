@@ -2,19 +2,17 @@
 
 brew update
 
-brew install git
-brew install zsh
-brew install tmux
-brew install python
-brew install python3
-brew install reattach-to-user-namespace
-brew install neovim/neovim/neovim
-brew install rmtrash
 brew install ctags
 brew install ffmpeg
+brew install git
+brew install reattach-to-user-namespace
+brew install neovim/neovim/neovim
 brew install p7zip
-brew install apktool
-brew install dex2jar
+brew install python
+brew install python3
+brew install rmtrash
+brew install tmux
+brew install zsh
 
 brew cleanup --force
 brew prune
