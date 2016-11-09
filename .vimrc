@@ -11,20 +11,16 @@ let g:molokai_original = 1
 let g:rehash256 = 1
 
 " Feature
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Shougo/denite.nvim', {'do' : ':UpdateRemotePlugins'}
 Plug 'majutsushi/tagbar'
 let g:tagbar_show_linenumbers = 1
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\v\.(exe|so|dll|swp|zip|7z|rar|gz|xz|apk|dmg|iso|jpg|png|pdf)$',
-\ }
 
 " Autocomplete
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
 Plug 'honza/vim-snippets'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', {'do' : ':UpdateRemotePlugins'}
 let g:deoplete#enable_at_startup = 1
 Plug  'scrooloose/syntastic'
 set statusline+=%#warningmsg#
@@ -40,47 +36,55 @@ Plug 'vim-scripts/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
+let g:NERDSpaceDelims = 1
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'ervandew/supertab'
 let SuperTabMappingForward="<S-Tab>"
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_smartcase = 1
 
+" CSS
+Plug 'gko/vim-coloresque',{'for': ['html','*ss','vue','javascript','markdown']}
+
+" Javascript
+Plug 'pangloss/vim-javascript',{'for': ['javascript']}
+
 " Markdown
 Plug 'godlygeek/tabular',{'for': ['markdown']}
 Plug 'plasticboy/vim-markdown',{'for': ['markdown']}
-
-" CSS
-Plug 'gko/vim-coloresque',{'for': ['html','css','javascript','markdown']}
 
 " Python
 Plug 'hdima/python-syntax',{'for': ['python']}
 let python_highlight_all = 1
 Plug 'zchee/deoplete-jedi',{'for': ['python']}
 
+" Vue
+Plug 'posva/vim-vue',{'for': ['vue']}
+Plug 'joukevandermaas/vim-ember-hbs'
+
 call plug#end()
 
 filetype plugin indent on
 
 " Hotkey
-map  n       <Plug>(easymotion-next)
-map  N       <Plug>(easymotion-prev)
-nmap ;       :
-vmap ;       :
 map  /       <Plug>(easymotion-sn)
 omap /       <Plug>(easymotion-tn)
+nmap ;       :
+vmap ;       :
 nmap \       zR
+map  n       <Plug>(easymotion-next)
+map  N       <Plug>(easymotion-prev)
+nmap <C-/>   :Denite grep:.<cr>
 nmap <C-a>   ggVG
 nmap <C-k>   H<Plug>(easymotion-w)
 nmap <C-l>   :nohl<CR>
+nmap <C-p>   :Denite file_rec<cr>
 nmap <C-t>   :TagbarToggle<CR><C-w>l
 nmap <C-y>   :set paste!<CR>
 nmap <C-5>   :set fileencoding=big5<CR>
 nmap <C-8>   :set fileencoding=utf8<CR>
 nmap <Enter> za
 vmap <Enter> <Plug>(EasyAlign)
-nmap <Tab>   gt
-nmap <S-Tab> gT
 
 " Evil shift!
 cab Q   q
@@ -133,10 +137,10 @@ autocmd FileType html   setlocal et sw=2 sts=2
 autocmd FileType ruby   setlocal et sw=2 sts=2
 
 " Run File
-autocmd filetype ruby       nnoremap <C-c> :w <bar> exec '!ruby '.shellescape('%') <CR>
-autocmd filetype javascript nnoremap <C-c> :w <bar> exec '!node '.shellescape('%') <CR>
-autocmd filetype shell      nnoremap <C-c> :w <bar> exec '!bash '.shellescape('%') <CR>
-autocmd filetype php        nnoremap <C-c> :w <bar> exec '!php -f '.shellescape('%')<CR>
-autocmd filetype python     nnoremap <C-c> :w <bar> exec 'term python '.shellescape('%')<CR>
-autocmd filetype c          nnoremap <C-c> :w <bar> exec '!gcc -o %:r '.shellescape('%').' -O3 && ./%:r'<CR>
-autocmd filetype cpp        nnoremap <C-c> :w <bar> exec '!g++ -o %:r '.shellescape('%').' -std=c++11 -O3 && ./%:r'<CR>
+autocmd filetype ruby       nnoremap <C-c> :w <bar> exec '!ruby '.shellescape('%')<CR>
+autocmd filetype javascript nnoremap <C-c> :w <bar> exec '!node '.shellescape('%')<CR>
+autocmd filetype shell      nnoremap <C-c> :w <bar> exec '!bash '.shellescape('%')<CR>
+autocmd filetype php        nnoremap <C-c> :w <bar> exec '!php  -f '.shellescape('%')<CR>
+autocmd filetype python     nnoremap <C-c> :w <bar> exec 'term  python '.shellescape('%')<CR>
+autocmd filetype c          nnoremap <C-c> :w <bar> exec '!gcc  -o %:r '.shellescape('%').' -std=c11 -Ofast -Wall && ./%:r'<CR>
+autocmd filetype cpp        nnoremap <C-c> :w <bar> exec '!g++  -o %:r '.shellescape('%').' -std=c++14 -Ofast -Wall && ./%:r'<CR>
