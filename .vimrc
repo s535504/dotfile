@@ -83,7 +83,7 @@ nmap <C-t>   :TagbarToggle<CR><C-w>l
 nmap <C-y>   :set paste!<CR>
 nmap <C-5>   :set fileencoding=big5<CR>
 nmap <C-8>   :set fileencoding=utf8<CR>
-nmap <Enter> za
+nmap <Bs> za
 vmap <Enter> <Plug>(EasyAlign)
 
 " Evil shift!
@@ -137,10 +137,10 @@ autocmd FileType html   setlocal et sw=2 sts=2
 autocmd FileType ruby   setlocal et sw=2 sts=2
 
 " Run File
-autocmd filetype ruby       nnoremap <C-c> :w <bar> exec '!ruby '.shellescape('%')<CR>
-autocmd filetype javascript nnoremap <C-c> :w <bar> exec '!node '.shellescape('%')<CR>
-autocmd filetype shell      nnoremap <C-c> :w <bar> exec '!bash '.shellescape('%')<CR>
-autocmd filetype php        nnoremap <C-c> :w <bar> exec '!php  -f '.shellescape('%')<CR>
+autocmd filetype ruby       nnoremap <C-c> :w <bar> exec 'term ruby '.shellescape('%')<CR>
+autocmd filetype javascript nnoremap <C-c> :w <bar> exec 'term node '.shellescape('%')<CR>
+autocmd filetype shell      nnoremap <C-c> :w <bar> exec 'term bash '.shellescape('%')<CR>
+autocmd filetype php        nnoremap <C-c> :w <bar> exec 'term php  -f '.shellescape('%')<CR>
 autocmd filetype python     nnoremap <C-c> :w <bar> exec 'term  python '.shellescape('%')<CR>
-autocmd filetype c          nnoremap <C-c> :w <bar> exec '!gcc  -o %:r '.shellescape('%').' -std=c11 -Ofast -Wall && ./%:r'<CR>
-autocmd filetype cpp        nnoremap <C-c> :w <bar> exec '!g++  -o %:r '.shellescape('%').' -std=c++14 -Ofast -Wall && ./%:r'<CR>
+autocmd filetype c          nnoremap <C-c> :w <bar> exec 'term gcc  -o %:r '.shellescape('%').' -std=c11 -Ofast -Wall && ./%:r'<CR>
+autocmd filetype cpp        nnoremap <C-c> :w <bar> exec 'term g++  -o %:r '.shellescape('%').' -std=c++14 -Ofast -Wall && ./%:r'<CR>
