@@ -52,14 +52,14 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux git brew brew-cask github osx python pip ruby node gem go docker zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(tmux git brew-cask github osx python pip ruby node gem go docker zsh-autosuggestions zsh-syntax-highlighting)
 autoload -U compinit && compinit
 
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/bin:$PATH"
-export PATH="/Users/duckll/Library/Android/sdk/platform-tools:$PATH"
+#export PATH="/Users/duckll/Library/Android/sdk/platform-tools:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -90,9 +90,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #gem
-#for dir in $HOME/.gem/ruby/*; do
-#  [ -d "$dir/bin" ] && PATH="${dir}/bin:${PATH}"
-#done
+for dir in $HOME/.gem/ruby/*; do
+ [ -d "$dir/bin" ] && PATH="${dir}/bin:${PATH}"
+done
 
 #pip
 #export PYTHONUSERBASE=~/.pip
@@ -117,6 +117,7 @@ alias vimrc="nvim ~/.vimrc"
 alias zshrc="nvim ~/.zshrc"
 alias tmuxrc="nvim ~/.tmux.conf"
 function mkcd { mkdir -p "$@" && cd "$@";  }
+function push { git a . && git cm "$@" && git push }
 
 
 #ssh
@@ -130,12 +131,18 @@ alias cc="cd ~/Google\ Drive/NTHU/105"
 alias rr="cd /Volumes/RamDisk/"
 alias site="cd ~/Sites"
 
-#app
+#application
 alias cask="brew cask"
+alias vm="ssh 192.168.255.135"
+function cov { ffmpeg -i "$@" -c:v libx265 "$@".mp4 }
 
 #docker
 alias dk="docker"
+alias dkp="docker ps -a"
+alias dki="docker images"
 alias ctf="docker start ctf && docker exec -it ctf script /dev/null -c 'tmux'"
+alias llvm="docker start llvm && docker exec -it llvm script /dev/null -c 'tmux'"
+function dkrm { docker kill "$@" && docker rm "$@" }
 
 ##apple
 alias launch="defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock"
