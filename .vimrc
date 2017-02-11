@@ -2,6 +2,7 @@
 set nocompatible
 call plug#begin()
 
+
 " UI
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
@@ -20,6 +21,11 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', {'do' : ':UpdateRemotePlugins'}
 Plug 'majutsushi/tagbar'
 let g:tagbar_show_linenumbers = 1
+Plug 'mbbill/undotree'
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
 
 " Autocomplete
 Plug 'SirVer/ultisnips'
@@ -79,16 +85,17 @@ vmap ;       :
 nmap \       zR
 map  n       <Plug>(easymotion-next)
 map  N       <Plug>(easymotion-prev)
-nmap <C-/>   :Denite grep:.<cr>
+nmap <C-/>   :Denite grep:.<CR>
 nmap <C-a>   ggVG
 nmap <C-k>   H<Plug>(easymotion-w)
 nmap <C-l>   :nohl<CR>
-nmap <C-p>   :Denite file_rec<cr>
+nmap <C-p>   :Denite file_rec<CR>
+nmap <C-r>   :UndotreeToggle<CR><C-w>h
 nmap <C-t>   :TagbarToggle<CR><C-w>l
-nmap <C-y>   :set paste!<CR>
-nmap <C-5>   :set fileencoding=big5<CR>
-nmap <C-8>   :set fileencoding=utf8<CR>
-nmap <Bs> za
+nmap <C-y>   :set    paste!<CR>
+nmap <C-5>   :set    fileencoding=big5<CR>
+nmap <C-8>   :set    fileencoding=utf8<CR>
+nmap <Bs>    za
 vmap <Enter> <Plug>(EasyAlign)
 
 " Evil shift!
