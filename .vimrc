@@ -2,12 +2,10 @@
 set nocompatible
 call plug#begin()
 
-
 " UI
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
@@ -26,6 +24,8 @@ if has("persistent_undo")
     set undodir=~/.undodir/
     set undofile
 endif
+Plug 'w0rp/ale'
+set statusline+=%{ALEGetStatusLine()}
 
 " Autocomplete
 Plug 'SirVer/ultisnips'
@@ -33,14 +33,6 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', {'do' : ':UpdateRemotePlugins'}
 let g:deoplete#enable_at_startup = 1
-Plug  'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Hotkey
 Plug 'vim-scripts/auto-pairs'
@@ -54,12 +46,6 @@ let SuperTabMappingForward="<S-Tab>"
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_smartcase = 1
 
-" CSS
-Plug 'gko/vim-coloresque',{'for': ['html','*ss','vue','javascript','markdown']}
-
-" Javascript
-Plug 'pangloss/vim-javascript',{'for': ['javascript']}
-
 " Markdown
 Plug 'godlygeek/tabular',{'for': ['markdown']}
 Plug 'plasticboy/vim-markdown',{'for': ['markdown']}
@@ -68,10 +54,6 @@ Plug 'plasticboy/vim-markdown',{'for': ['markdown']}
 Plug 'hdima/python-syntax',{'for': ['python']}
 let python_highlight_all = 1
 Plug 'zchee/deoplete-jedi',{'for': ['python']}
-
-" Vue
-Plug 'posva/vim-vue',{'for': ['vue']}
-Plug 'joukevandermaas/vim-ember-hbs'
 
 call plug#end()
 
@@ -90,7 +72,7 @@ nmap <C-a>   ggVG
 nmap <C-k>   H<Plug>(easymotion-w)
 nmap <C-l>   :nohl<CR>
 nmap <C-p>   :Denite file_rec<CR>
-nmap <C-r>   :UndotreeToggle<CR><C-w>h
+nmap <C-r>   H:UndotreeToggle<CR><C-w>h
 nmap <C-t>   :TagbarToggle<CR><C-w>l
 nmap <C-y>   :set    paste!<CR>
 nmap <C-5>   :set    fileencoding=big5<CR>

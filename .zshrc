@@ -52,7 +52,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux git brew-cask github osx python pip ruby node gem go docker zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(tmux git node aws docker zsh-autosuggestions zsh-syntax-highlighting)
 autoload -U compinit && compinit
 
 # User configuration
@@ -98,6 +98,11 @@ done
 #export PYTHONUSERBASE=~/.pip
 #PATH="$PYTHONUSERBASE/bin:${PATH}"
 
+#adb
+export PATH="/Users/duckll/Library/Android/sdk/platform-tools:${PATH}"
+export PATH="/Users/duckll/Library/Android/sdk/ndk-bundle:${PATH}"
+
+
 #prompt
 export PROMPT=%{$fg[blue]%}%~%{$reset_color%}$
 
@@ -111,7 +116,6 @@ alias mv="mv -i"
 alias myip="curl ipinfo.io"
 alias rm="rmtrash"
 alias tmuxrc="nvim ~/.tmux.conf"
-alias vi="nvim"
 alias vim="nvim"
 alias vimrc="nvim ~/.vimrc"
 alias zshrc="nvim ~/.zshrc"
@@ -119,29 +123,20 @@ alias tmuxrc="nvim ~/.tmux.conf"
 function mkcd { mkdir -p "$@" && cd "$@";  }
 function push { git a . && git cm "$@" && git push }
 
-
 #ssh
 alias ptt="ssh bbsu@ptt.cc"
-alias ncyu="ssh islab@120.113.173.49"
-alias nthu="ssh 140.114.77.174 -p 42968"
-alias vpn="ssh 140.114.77.196 -p 42968"
 
 #cd
-alias cc="cd ~/Google\ Drive/NTHU/105"
+alias cc="cd ~/Google\ Drive/NTHU/10502"
 alias rr="cd /Volumes/RamDisk/"
 alias site="cd ~/Sites"
 
 #application
 alias cask="brew cask"
-alias vm="ssh 192.168.255.135"
-function cov { ffmpeg -i "$@" -c:v libx265 "$@".mp4 }
 
 #docker
 alias dk="docker"
-alias dkp="docker ps -a"
-alias dki="docker images"
 alias ctf="docker start ctf && docker exec -it ctf script /dev/null -c 'tmux'"
-alias llvm="docker start llvm && docker exec -it llvm script /dev/null -c 'tmux'"
 function dkrm { docker kill "$@" && docker rm "$@" }
 
 ##apple
