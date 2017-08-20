@@ -7,15 +7,14 @@
     "editor.wordWrap": "on",
     "editor.renderIndentGuides": true,
     "workbench.colorTheme": "One Dark Pro",
-    "workbench.iconTheme": "vs-seti",
+    "workbench.iconTheme": "vscode-great-icons",
     "files.autoSave": "onFocusChange",
     "extensions.autoUpdate": true,
-    "python.pythonPath": "/usr/local/bin/python",
     "markdown.preview.scrollEditorWithPreview": true,
     "markdown.preview.scrollPreviewWithEditorSelection": true,
     "docker.enableLinting": true,
-    "sync.gist": "2640a59e02aa63ebcc0bb04658fdf2a2",
-    "sync.lastUpload": "2017-06-01T06:41:12.443Z",
+    "sync.gist": "0059b58e1a75fe71d04ccea21fa1615e",
+    "sync.lastUpload": "2017-06-14T09:13:50.011Z",
     "sync.autoDownload": false,
     "sync.autoUpload": true,
     "sync.lastDownload": "",
@@ -23,5 +22,7 @@
     "sync.anonymousGist": false,
     "sync.host": "",
     "sync.pathPrefix": "",
-    "sync.quietSync": false
+    "sync.quietSync": false,
+    "git.enableSmartCommit": true,
+    "extensions.ignoreRecommendations": false
 }
